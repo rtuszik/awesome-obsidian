@@ -12,6 +12,13 @@ jobs:
     permissions:
       issues: write # required for peter-evans/create-issue-from-file
     steps:
+      - name: Restore lychee cache
+        uses: actions/cache@v4
+        with:
+          path: .lycheecache
+          key: cache-lychee-${{ github.sha }}
+          restore-keys: cache-lychee-
+
       - uses: actions/checkout@v4
 
       - name: Link Checker
