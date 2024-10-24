@@ -28,7 +28,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # Currently Broken According to #251
         with:
-          args: --cache --exclude-mail --max-cache-age 7d --no-progress
+          args: --cache --exclude-mail --max-cache-age 7d --no-progress './README.md'
         #   fail: false
 
       - name: Find Link Checker Issue
