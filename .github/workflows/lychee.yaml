@@ -25,9 +25,10 @@ jobs:
         id: lychee
         uses: lycheeverse/lychee-action@v2
         env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # Currently Broken According to #251
-        # with:
+        with:
+          args: --cache --exclude-mail --max-cache-age 7 --no-progress
         #   fail: false
 
       - name: Find Link Checker Issue
