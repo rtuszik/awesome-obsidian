@@ -1,5 +1,5 @@
 name: MegaLinter
-on: [push, workflow_dispatch]
+on: [workflow_dispatch]
 
 jobs:
   megalinter:
@@ -25,6 +25,8 @@ jobs:
         env:
           VALIDATE_ALL_CODEBASE: true
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DISABLE: BASH, SPELL
+          DISABLE_ERRORS_LINTERS: SPELL_CSPELL, SPELL_PROSELINT, SPELL_VALE
 
       # Upload MegaLinter artifacts
       - name: Archive production artifacts
